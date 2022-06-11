@@ -11,12 +11,12 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 /**
- * Test for YieldIterator
+ * Test for YieldIteratorQueue
  * @author A.K.
  */
-public class YieldIteratorTest {
+public class YieldIteratorQueueImplTest {
     
-    public YieldIteratorTest() {
+    public YieldIteratorQueueImplTest() {
     }
 
     // --- Simple iteration test ---
@@ -27,7 +27,7 @@ public class YieldIteratorTest {
     @Test
     public void testSimpleSequence() throws Exception {
         System.out.println("testSimpleSequence");
-        YieldIterator<Integer> iterator = new YieldIterator<>() {
+        YieldIteratorQueueImpl<Integer> iterator = new YieldIteratorQueueImpl<>() {
             @Override
             protected void generator() throws InterruptedException {
                 for (int i=0;i<10;i++) yield(i); // test implementation
@@ -49,7 +49,7 @@ public class YieldIteratorTest {
     @Test
     public void testManyHasNextCall() throws Exception {
         System.out.println("testManyHasNextCall");
-        YieldIterator<Integer> iterator = new YieldIterator<>() {
+        YieldIteratorQueueImpl<Integer> iterator = new YieldIteratorQueueImpl<>() {
             @Override
             protected void generator() throws InterruptedException {
                 for (int i=0;i<10;i++) yield(i); // test implementation
@@ -75,7 +75,7 @@ public class YieldIteratorTest {
     @Test
     public void testNoSuchElement() throws Exception {
         System.out.println("testNoSuchElement");
-        YieldIterator<Integer> iterator = new YieldIterator<>() {
+        YieldIteratorQueueImpl<Integer> iterator = new YieldIteratorQueueImpl<>() {
             @Override
             protected void generator() throws InterruptedException {
                 for (int i=0;i<10;i++) yield(i); // test implementation
@@ -105,7 +105,7 @@ public class YieldIteratorTest {
     @Test
     public void testSimpleSequenceWithoutHasNext1() throws Exception {
         System.out.println("testSimpleSequenceWithoutHasNext1");
-        YieldIterator<Integer> iterator = new YieldIterator<>() {
+        YieldIteratorQueueImpl<Integer> iterator = new YieldIteratorQueueImpl<>() {
             @Override
             protected void generator() throws InterruptedException {
                 for (int i=0;i<10;i++) yield(i); // test implementation
@@ -129,7 +129,7 @@ public class YieldIteratorTest {
     @Test
     public void testSimpleSequenceWithoutHasNext2() throws Exception {
         System.out.println("testSimpleSequenceWithoutHasNext2");
-        YieldIterator<Integer> iterator = new YieldIterator<>() {
+        YieldIteratorQueueImpl<Integer> iterator = new YieldIteratorQueueImpl<>() {
             @Override
             protected void generator() throws InterruptedException {
                 for (int i=0;i<10;i++) yield(i); // test implementation
@@ -154,7 +154,7 @@ public class YieldIteratorTest {
     @Test
     public void testEmptySequence1() throws Exception {
         System.out.println("testEmptySequence1");
-        YieldIterator<Integer> iterator = new YieldIterator<>() {
+        YieldIteratorQueueImpl<Integer> iterator = new YieldIteratorQueueImpl<>() {
             @Override
             protected void generator() throws InterruptedException {
                 // none
@@ -172,7 +172,7 @@ public class YieldIteratorTest {
     @Test
     public void testEmptySequence2() throws Exception {
         System.out.println("testEmptySequence2");
-        YieldIterator<Integer> iterator = new YieldIterator<>() {
+        YieldIteratorQueueImpl<Integer> iterator = new YieldIteratorQueueImpl<>() {
             @Override
             protected void generator() throws InterruptedException {
                 // none
@@ -195,7 +195,7 @@ public class YieldIteratorTest {
     @Test
     public void testSimpleSequenceAndThrow1() throws Exception {
         System.out.println("testSimpleSequenceAndThrow1");
-        YieldIterator<Integer> iterator = new YieldIterator<>() {
+        YieldIteratorQueueImpl<Integer> iterator = new YieldIteratorQueueImpl<>() {
             @Override
             protected void generator() throws InterruptedException {
                 yield(1);
@@ -223,7 +223,7 @@ public class YieldIteratorTest {
     @Test
     public void testSimpleSequenceAndThrow2() throws Exception {
         System.out.println("testSimpleSequenceAndThrow2");
-        YieldIterator<Integer> iterator = new YieldIterator<>() {
+        YieldIteratorQueueImpl<Integer> iterator = new YieldIteratorQueueImpl<>() {
             @Override
             protected void generator() throws InterruptedException {
                 yield(1);
@@ -253,7 +253,7 @@ public class YieldIteratorTest {
     @Test
     public void testSimpleSequenceAndThrow3() throws Exception {
         System.out.println("testSimpleSequenceAndThrow3");
-        YieldIterator<Integer> iterator = new YieldIterator<>() {
+        YieldIteratorQueueImpl<Integer> iterator = new YieldIteratorQueueImpl<>() {
             @Override
             protected void generator() throws InterruptedException {
                 throw new RuntimeException("Ups, some throuble happend.");
@@ -274,7 +274,7 @@ public class YieldIteratorTest {
     @Test
     public void testSimpleSequenceAndThrow4() throws Exception {
         System.out.println("testSimpleSequenceAndThrow4");
-        YieldIterator<Integer> iterator = new YieldIterator<>() {
+        YieldIteratorQueueImpl<Integer> iterator = new YieldIteratorQueueImpl<>() {
             @Override
             protected void generator() throws InterruptedException {
                 throw new RuntimeException("Ups, some throuble happend.");
@@ -293,7 +293,7 @@ public class YieldIteratorTest {
     @Test
     public void testClose1() throws Exception {
         System.out.println("testClose1");
-        YieldIterator<Integer> iterator = new YieldIterator<>() {
+        YieldIteratorQueueImpl<Integer> iterator = new YieldIteratorQueueImpl<>() {
             @Override
             protected void generator() throws InterruptedException {
                 yield(1);
@@ -317,7 +317,7 @@ public class YieldIteratorTest {
     /*@Test
     public void testClose2() throws Exception {
         System.out.println("testClose2");
-        YieldIterator<Integer> iterator = new YieldIterator<>() {
+        YieldIteratorQueueImpl<Integer> iterator = new YieldIteratorQueueImpl<>() {
             @Override
             protected void generator() throws InterruptedException {
                 yield(1);
@@ -347,7 +347,7 @@ public class YieldIteratorTest {
         System.out.println("testLoadSimpleSequence1");
         final int N=10_000;
         long time1=System.nanoTime(); // nanoTime() 10^9s or currentTimeMillis() 10^3s
-        YieldIterator<Integer> iterator = new YieldIterator<>() {
+        YieldIteratorQueueImpl<Integer> iterator = new YieldIteratorQueueImpl<>() {
             @Override
             protected void generator() throws InterruptedException {
                 for (int i=0;i<N;i++) yield(i); // test implementation
@@ -369,13 +369,25 @@ public class YieldIteratorTest {
     }
     /*
 testLoadSimpleSequence1
-Iterated voer 10000 number time: 117715301 (11771 per yield call)
-Iterated voer 10000 number time: 116538417 (11653 per yield call)
-Iterated voer 10000 number time: 89240038 (8924 per yield call)
-Iterated voer 10000 number time: 108075861 (10807 per yield call)
-Iterated voer 100000 number time: 618512420 (6185 per yield call)
-Iterated voer 1000000 number time: 6350485816 (6350 per yield call)
-Iterated voer 10000000 number time: 63510912999 (6351 per yield call)
+    Queqe: capacity=2, fail=true
+Iterated voer 10000 number time: 128980293 (12898 per yield call)
+Iterated voer 10000 number time: 155052402 (15505 per yield call)
+Iterated voer 10000 number time: 146968811 (14696 per yield call)
+Iterated voer 10000 number time: 210738903 (21073 per yield call)
+Iterated voer 10000 number time: 233659279 (23365 per yield call)
+Iterated voer 100000 number time: 1879886879 (18798 per yield call)
+Iterated voer 1000000 number time: 10882808322 (10882 per yield call)
+Iterated voer 1000000 number time: 13635488779 (13635 per yield call) AssertionError: expected:<-364189984> but was:<499999500000>
+
+    Queqe: capacity=2, fail=false
+Iterated voer 10000 number time: 59391652 (5939 per yield call)
+Iterated voer 10000 number time: 42409784 (4240 per yield call)
+Iterated voer 10000 number time: 64498513 (6449 per yield call)
+Iterated voer 10000 number time: 62390791 (6239 per yield call)
+Iterated voer 10000 number time: 43169051 (4316 per yield call)
+Iterated voer 100000 number time: 270679796 (2706 per yield call)
+Iterated voer 1000000 number time: 2934442647 (2934 per yield call)
+Iterated voer 10000000 number time: 26336878846 (2633 per yield call)
     */
 
 }
