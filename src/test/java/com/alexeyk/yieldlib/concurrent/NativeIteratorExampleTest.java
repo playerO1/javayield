@@ -53,21 +53,21 @@ public class NativeIteratorExampleTest {
             summ+=iterator.next();
         }
         long time2=System.nanoTime();
-        System.out.println("Iterated voer "+N+" number time: "+ (time2-time1) +" ("+ (time2-time1)/N +" per next call)");
+        System.out.println("Iterated "+N+" number time: "+ (time2-time1) +" ("+ (time2-time1)/N +" per next call)");
         // verify
         assertEquals(N, count);
         long Nx = N-1; // begin from 0
         assertEquals(Nx*(Nx+1)/2L, summ);
     }
     /*
-Iterated voer 10000 number time: 2137918 (213 per next call)
-Iterated voer 10000 number time: 1839081 (183 per next call)
-Iterated voer 10000 number time: 2066664 (206 per next call)
-Iterated voer 10000 number time: 2088816 (208 per next call)
-Iterated voer 100000 number time: 8753237 (87 per next call)
-Iterated voer 1000000 number time: 19190916 (19 per next call)
-Iterated voer 10000000 number time: 112989157 (11 per next call)
-Iterated voer 100000000 number time: 499464261 (4 per next call)
+Iterated 10000 number time: 2137918 (213 per next call)
+Iterated 10000 number time: 1839081 (183 per next call)
+Iterated 10000 number time: 2066664 (206 per next call)
+Iterated 10000 number time: 2088816 (208 per next call)
+Iterated 100000 number time: 8753237 (87 per next call)
+Iterated 1000000 number time: 19190916 (19 per next call)
+Iterated 10000000 number time: 112989157 (11 per next call)
+Iterated 100000000 number time: 499464261 (4 per next call)
     */
 
 }

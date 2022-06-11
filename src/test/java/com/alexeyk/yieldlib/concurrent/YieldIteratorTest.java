@@ -361,7 +361,7 @@ public class YieldIteratorTest {
             summ+=iterator.next();
         }
         long time2=System.nanoTime();
-        System.out.println("Iterated voer "+N+" number time: "+ (time2-time1) +" ("+ (time2-time1)/N +" per yield call)");
+        System.out.println("Iterated "+N+" number time: "+ (time2-time1) +" ("+ (time2-time1)/N +" per yield call)");
         // verify
         assertEquals(N, count);
         long Nx = N-1; // begin from 0
@@ -369,13 +369,13 @@ public class YieldIteratorTest {
     }
     /*
 testLoadSimpleSequence1
-Iterated voer 10000 number time: 117715301 (11771 per yield call)
-Iterated voer 10000 number time: 116538417 (11653 per yield call)
-Iterated voer 10000 number time: 89240038 (8924 per yield call)
-Iterated voer 10000 number time: 108075861 (10807 per yield call)
-Iterated voer 100000 number time: 618512420 (6185 per yield call)
-Iterated voer 1000000 number time: 6350485816 (6350 per yield call)
-Iterated voer 10000000 number time: 63510912999 (6351 per yield call)
+Iterated 10000 number time: 117715301 (11771 per yield call)
+Iterated 10000 number time: 116538417 (11653 per yield call)
+Iterated 10000 number time: 89240038 (8924 per yield call)
+Iterated 10000 number time: 108075861 (10807 per yield call)
+Iterated 100000 number time: 618512420 (6185 per yield call)
+Iterated 1000000 number time: 6350485816 (6350 per yield call)
+Iterated 10000000 number time: 63510912999 (6351 per yield call)
     */
 
 }

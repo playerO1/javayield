@@ -4,6 +4,7 @@
  */
 package com.alexeyk.yieldlib.concurrent;
 
+import java.io.Closeable;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
@@ -28,7 +29,7 @@ import java.util.NoSuchElementException;
  * (C) A.K. 2022
  * @author A.K.
  */
-public abstract class YieldIterator<T> implements Iterator<T>/* todo , Cloasable */{
+public abstract class YieldIterator<T> implements Iterator<T>, Closeable {
     protected static final Object STOP_OBJECT = new Object();
     protected final Object WAIT_OBJECT = new Object(); // sync object
     protected final Thread generator;
@@ -149,7 +150,7 @@ public abstract class YieldIterator<T> implements Iterator<T>/* todo , Cloasable
      * Ensure close thread.
      * Last element from next() will be removed ater call close().
      */
-    //@Override - Closeable
+    @Override
     public void close() {
         if (generator.isAlive()) {
             generator.interrupt();

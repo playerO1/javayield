@@ -361,7 +361,7 @@ public class YieldIteratorQueueImplTest {
             summ+=iterator.next();
         }
         long time2=System.nanoTime();
-        System.out.println("Iterated voer "+N+" number time: "+ (time2-time1) +" ("+ (time2-time1)/N +" per yield call)");
+        System.out.println("Iterated "+N+" number time: "+ (time2-time1) +" ("+ (time2-time1)/N +" per yield call)");
         // verify
         assertEquals(N, count);
         long Nx = N-1; // begin from 0
@@ -370,24 +370,24 @@ public class YieldIteratorQueueImplTest {
     /*
 testLoadSimpleSequence1
     Queqe: capacity=2, fail=true
-Iterated voer 10000 number time: 128980293 (12898 per yield call)
-Iterated voer 10000 number time: 155052402 (15505 per yield call)
-Iterated voer 10000 number time: 146968811 (14696 per yield call)
-Iterated voer 10000 number time: 210738903 (21073 per yield call)
-Iterated voer 10000 number time: 233659279 (23365 per yield call)
-Iterated voer 100000 number time: 1879886879 (18798 per yield call)
-Iterated voer 1000000 number time: 10882808322 (10882 per yield call)
-Iterated voer 1000000 number time: 13635488779 (13635 per yield call) AssertionError: expected:<-364189984> but was:<499999500000>
+Iterated 10000 number time: 128980293 (12898 per yield call)
+Iterated 10000 number time: 155052402 (15505 per yield call)
+Iterated 10000 number time: 146968811 (14696 per yield call)
+Iterated 10000 number time: 210738903 (21073 per yield call)
+Iterated 10000 number time: 233659279 (23365 per yield call)
+Iterated 100000 number time: 1879886879 (18798 per yield call)
+Iterated 1000000 number time: 10882808322 (10882 per yield call)
+Iterated 1000000 number time: 13635488779 (13635 per yield call) AssertionError: expected:<-364189984> but was:<499999500000>
 
     Queqe: capacity=2, fail=false
-Iterated voer 10000 number time: 59391652 (5939 per yield call)
-Iterated voer 10000 number time: 42409784 (4240 per yield call)
-Iterated voer 10000 number time: 64498513 (6449 per yield call)
-Iterated voer 10000 number time: 62390791 (6239 per yield call)
-Iterated voer 10000 number time: 43169051 (4316 per yield call)
-Iterated voer 100000 number time: 270679796 (2706 per yield call)
-Iterated voer 1000000 number time: 2934442647 (2934 per yield call)
-Iterated voer 10000000 number time: 26336878846 (2633 per yield call)
+Iterated 10000 number time: 59391652 (5939 per yield call)
+Iterated 10000 number time: 42409784 (4240 per yield call)
+Iterated 10000 number time: 64498513 (6449 per yield call)
+Iterated 10000 number time: 62390791 (6239 per yield call)
+Iterated 10000 number time: 43169051 (4316 per yield call)
+Iterated 100000 number time: 270679796 (2706 per yield call)
+Iterated 1000000 number time: 2934442647 (2934 per yield call)
+Iterated 10000000 number time: 26336878846 (2633 per yield call)
     */
 
 }
